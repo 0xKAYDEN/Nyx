@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<OutputPath>../Server</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\" />
+    <Folder Include="HexSolo\" />
+    <Folder Include="HexStory\" />
+    <Folder Include="HexElite\" />
+  </ItemGroup>
+
+</Project>

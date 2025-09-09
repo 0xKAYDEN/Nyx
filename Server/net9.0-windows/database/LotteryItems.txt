@@ -1,0 +1,369 @@
+730001 Stone(+1) 928
+723724 DisguiseAmulet 925
+723725 LifeFruitBasket 925
+723727 PenitenceAmulet 925
+723713 Class1MoneyBag 925
+723855 +1MaroonSteedPack 926
+723856 +1WhiteSteedPack 926
+723859 +1BlackSteedPack 926
+723341 EnduranceBook 925
+3000120 MiniLotteryPack 925
+711504 SmallLotteryTicket 925
+3000060 20PointsChiPack 930
+3003132 FavoredTrainingPack(1) 927
+3003140 SpecialTrainingPack(2) 927
+730002 Stone(+2) 928
+723017 ExpPotion 925
+723700 ExpBall 925
+723714 Class2MoneyBag 925
+3000121 StandardLotteryPack 925
+723711 MeteorTearPack 925
+3000061 40PointsChiPack 930
+3003133 FavoredTrainingPack(2) 927
+3003153 SpecialTrainingPillPack 927
+700062 MoonGem 925
+700022 FuryGem 925
+700052 VioletGem 925
+723712 +1StonePack 928
+723715 Class3MoneyBag 925
+710214 QuestChanceB 925
+3000122 BigLotteryPack 925
+721258 CleanWater 925
+3000062 60PointsChiPack 930
+3003146 SeniorTrainingBox(1) 927
+3003134 FavoredTrainingPack(5) 927
+730003 Stone(+3) 928
+700012 DragonGem 925
+700002 PhoenixGem 925
+700032 RainbowGem 925
+723716 Class4MoneyBag 925
+1200000 PrayingStone(S) 925
+3000123 LuxuryLotteryPack 925
+721259 CelestialStone 925
+3000063 150PointsChiPack 930
+3003147 SeniorTrainingBox(2) 927
+3003135 FavoredTrainingPack(10) 927
+1088000 DragonBall 925
+730004 Stone(+4) 928
+723584 BlackTulip 925
+723717 Class5MoneyBag 925
+181305 WhitePhoenix 925
+181405 BrownPhoenix 925
+181505 BlackPhoenix 925
+181605 RedPhoenix 925
+181705 GreenPhoenix 925
+181805 BluePhoenix 925
+181905 PurplePhoenix 925
+181315 WhiteElegance 925
+181415 BrownElegance 925
+181515 BlackElegance 925
+181615 RedElegance 925
+181715 GreenElegance 925
+181815 BlueElegance 925
+181915 PurpleElegance 925
+181325 WhiteCelestial 925
+181425 BrownCelestial 925
+181525 BlackCelestial 925
+181625 RedCelestial 925
+181725 CyanCelestial 925
+181825 BlueCelestial 925
+181925 PurpleCelestial 925
+181335 WeddingGown 925
+181345 ColorfulDress 925
+181355 DarkWizard 925
+181365 PrairieWind 925
+181375 SongofTianshan 925
+181385 RoyalDignity 925
+181395 UglyDuck 925
+182305 SouthofCloud 925
+182315 BonfireNight 925
+182325 AngelicalDress 925
+700102 ThunderGem 925
+700122 GloryGem 925
+752099 99Lilies 925
+723860 +3MaroonSteedPack 926
+723861 +3WhiteSteedPack 926
+723862 +3BlackSteedPack 926
+723583 NinjaAmulet 925
+1200001 PrayingStone(M) 925
+725018 Dance2 925
+725019 Dance3 925
+725020 Dance4 925
+725021 Dance5 925
+725022 Dance6 925
+725023 Dance7 925
+725024 Dance8 925
+700072 TortoiseGem 925
+183305 SandRaider 925
+183375 CaribbeanPirate 925
+183315 SamuraiLegacy 925
+183325 DuskRomance 925
+3003148 SeniorTrainingBox(5) 927
+3003136 FavoredTrainingPack(20) 927
+730005 Stone(+5) 928
+1200002 PrayingStone(L) 925
+700073 TortoiseGem 925
+2100045 MagicalBottle 925
+723701 ExemptionToken 925
+723718 Class6MoneyBag 925
+723719 Class7MoneyBag 925
+130089 WarArmor 925
+118089 MonkCoronet 925
+131089 BasaltArmor 925
+111089 ViolentHelmet 925
+133079 RhinoCoat 925
+113069 AntlerHat 925
+134099 ConquestGown 925
+114099 StarCap 925
+121189 GoldBag 925
+120189 DragonNecklace 925
+152189 BlueBracelet 925
+117089 JadeEarring 925
+150199 DiamondRing 925
+151179 JetHeavyRing 925
+160199 KylinBoots 925
+421199 CloudBacksword 925
+500189 RosewoodBow 925
+900089 ThornShield 925
+410199 RainbowBlade 925
+420199 LoyalSword 925
+430199 DemonHook 925
+440199 LightningWhip 925
+450199 GoldAxe 925
+460199 ShiningHammer 925
+480199 SnakeClub 925
+481199 ThunderScepter 925
+490199 RainbowDagger 925
+510199 TigerGlaive 925
+530199 GrimPoleaxe 925
+540199 PetalLongHammer 925
+560199 Lance 925
+580199 SilverHalbert 925
+561199 CopperWand 925
+421088 IronBacksword 925
+500088 QinBow 925
+900018 RattanShield 925
+410098 MoonBlade 925
+420098 FangSword 925
+430098 AntlerHook 925
+440098 TwinWhip 925
+450098 PeaceAxe 925
+460098 MelonHammer 925
+480098 WarClub 925
+481098 WishScepter 925
+490098 CaoDagger 925
+510098 UnionGlaive 925
+530098 TwinPoleaxe 925
+540098 GreatLongHammer 925
+560098 LuckSpear 925
+580098 GoldHalbert 925
+561098 ShaolinWand 925
+182335 BlueDream 925
+182345 MoonOrchid 925
+182355 FeatherDress 925
+182365 HeavenScent 925
+182375 CherryBlossom 925
+182385 DreaminFlowers 925
+141069 MapleHeadband 925
+142069 SwanPlume 925
+201009 HeavenFan 925
+202009 StarTower 925
+135089 MoonVest 925
+112069 BloodVeil 925
+123069 BlazeHood 925
+601199 LordKatana 925
+601098 FangKatana 925
+191305 GoodLuck 925
+725016 NightDevil 925
+191405 DivineRobe 925
+723694 PermanentStone 925
+723342 ModestyBook
+203009 RidingCrop
+610098 JeweledPrayerBeads
+610199 BeadsOfConcentration
+143069 HeadbandOfRepentance
+136089 FrockOfAges
+139089 TunaCoat
+144069 CalmHat
+611199 BloodRapier
+611098 StreamRapier
+612199 WailingPistol
+612098 GoldPistol
+145069 VikingHood
+511199 Exorcist`sScythe
+511098 EvilScythe
+613199 JusticeKnife
+613098 SolarKnife
+730006 Stone(+6) 928
+2100025 MiraculousGourd
+1100009 Sash(L)
+723720 Class8MoneyBag
+723721 Class9MoneyBag
+130058 DemonArmor
+118058 GoldCoronet
+131058 ChainedArmor
+111058 PearlHelmet
+133048 ApeCoat
+113038 LeopardHat
+134058 PowerGown
+114068 SharkCap
+121128 AmbergrisBag
+120128 PlatinaNecklace
+152128 BoneBracelet
+117068 HeartofOcean
+150118 JadeRing
+151118 DarkHeavyRing
+160098 LightBoots
+141058 FiresilkBand
+142058 RoyalPlume
+752999 999Lilies
+112058 FlameVeil
+123058 DemonHood
+135058 WolfVest
+1200005 ToughDrill
+136058 Friar`sFrock
+143058 PureHeadband
+144058 TranquilHat
+139058 HuntingCoat
+145058 BlindingHood
+723722 Class10MoneyBag
+723723 TopMoneyBag
+421078 EndBacksword
+500078 HornBow
+900008 SoftShield
+410078 Cutlass
+420088 PeaceSword
+430088 PhoenixHook
+440088 ShaolinMace
+450088 ShaolinAxe
+460088 WarHammer
+480088 UnitClub
+481088 LotusScepter
+490088 DragonDagger
+510088 RockGlaive
+530088 SwallowPoleaxe
+540088 GhostLongHammer
+560088 MoonSpear
+580088 HawkHalbert
+561088 TimeWand
+130038 GothicPlate
+118038 SteelCoronet
+131038 SteelArmor
+111038 ShiningHelmet
+133038 LeopardCoat
+113018 CatHat
+134038 StarRobe
+114038 StoneCap
+121088 BlueBag
+120088 CrystalNecklace
+152108 VioletBracelet
+117038 MeteorEarring
+150078 AmethystRing
+151078 IvoryHeavyRing
+160078 EagleBoots
+130048 DipperArmor
+118048 JadeCoronet
+131048 BrightArmor
+111048 SyeniticHelmet
+133028 WolfCoat
+113028 JackalHat
+134048 PureGown
+114048 CloudCap
+121098 BeanBag
+120098 GoldNecklace
+152088 GoldBracelet
+117048 TasselEarring
+150098 IvoryRing
+151098 BoneHeavyRing
+160118 CrocodileBoots
+141048 PearlHeadband
+142048 ArcticPlume
+142018 EmeraldPlume
+141038 RoseHeadband
+201008 HeavenFan
+202008 StarTower
+601088 ThunderKatana
+135048 MythVest
+112038 LotusVeil
+123038 CyanHood
+135028 MasterNinjaVest
+112028 PlumeVeil
+123028 ScarletHood
+723863 +6MaroonSteedPack 926
+723864 +6WhiteSteedPack 926
+723865 +6BlackSteedPack 926
+720049 +6RandomSteedPack 926
+723695 BigPermanentStone
+730007 Stone(+7) 928
+203008 RidingCrop
+143028 HeadbandOfWisdom
+136028 SpunGoldFrock
+143038 HeadbandOfObedience
+136048 RadiantFrock
+610088 PolishedPrayerBeads
+611088 WaveRapier
+139048 AbyssCoat
+144038 WaveHat
+139028 WaveCoat
+144028 GuardHat
+612088 SilverPistol
+145038 CruiseHood
+145028 SailorHood
+511088 DemonScythe
+613088 SparkyKnife
+3002559 EXPCarePill
+148069 WindHood
+138089 CombatSuit(Lv.100)
+617199 SpiritNunchaku
+617198 SpiritNunchaku
+138058 CombatSuit(Lv.57)
+148058 MercyHood
+617098 DragonNunchaku
+138028 CombatSuit(Lv.32)
+148028 KungFuHood
+619078 DesireHossu
+204008 TempestWing
+3001408 30PointsChiPack 930
+3001409 50PointsChiPack 930
+3001410 80PointsChiPack 930
+3001411 200PointsChiPack 930
+3001414 +2MaroonSteedBox 926
+3001415 +2WhiteSteedBox 926
+3001416 +2BlackSteedBox 926
+3003141 SpecialTrainingPack(5) 927
+3005643 40CPsPack
+3005644 50CPsPack
+3005645 100CPsPack
+3005656 FavoredTrainingPack 927
+3005658 SpecialTrainingPack 927
+3005653 +1StonePack 928
+3005660 RefinedTortoiseGemPack
+3008927 60CPsPack
+3008929 120CPsPack
+3005654 +2StonePack
+3005664 SuperGemPack
+3003126 SeniorTrainingPill 927
+3005666 LeadingSteedPack 926
+3005670 RadiantChiPack 930
+3008931 SeniorTrainingBox(3) 927
+3005665 ProsperousMoneyBag
+3008928 70CPsPack
+3008930 150CPsPack
+3005667 SwiftSteedPack 926
+3005313 800PointsChiPack 930
+3003149 SeniorTrainingBox(10) 927
+720665 CuteCPPack
+3008932 SuperTortoiseGemPack
+3005683 ExcellentGearPack
+3001499 ChiPointPack(2000) 930
+3005668 SuccessSteedPack 926
+3007368 LuxuriousCPPack
+3001836 ChiPointPack(2500) 930
+720028 DBScroll
+3005676 PermanentStonePack
+3008933 PermanentStonePack
+3008934 ToughDrillPack
+3005648 500CPsPack
+3008198 ChiBox(3000Points) 930
+3005659 SeniorTrainingPack 927
+3005013 600CPsBag

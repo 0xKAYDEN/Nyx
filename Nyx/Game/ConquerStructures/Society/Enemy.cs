@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Nyx.Server.Game.ConquerStructures.Society
+{
+    public class Enemy : Interfaces.IKnownPerson
+    {
+        public uint ID
+        {
+            get;
+            set;
+        }
+        public string Name
+        {
+            get;
+            set;
+        }
+        public bool IsOnline
+        {
+            get
+            {
+                return Kernel.GamePool.ContainsKey(ID);
+            }
+        }
+        public Client.GameClient Client
+        {
+            get
+            {
+                return Kernel.GamePool[ID];
+            }
+        }
+    }
+}
