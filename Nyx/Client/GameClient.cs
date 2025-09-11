@@ -629,10 +629,13 @@ namespace Nyx.Server.Client
             if (buffer == null || buffer.Length == 0)
                 return;
             if (Fake) return;
-            byte[] _buffer = new byte[buffer.Length];
-            Buffer.BlockCopy(buffer, 0, _buffer, 0, buffer.Length);
+            // Use pooled buffer to reduce allocations and GC pressure
+            var _buffer = System.Buffers.ArrayPool<byte>.Shared.Rent(buffer.Length);
+            try
+            {
+                Buffer.BlockCopy(buffer, 0, _buffer, 0, buffer.Length);
             var id = BitConverter.ToUInt16(_buffer, 2);
-            Network.SafeWriter.Write(Constants.ServerKey, _buffer.Length - 8, _buffer);
+            Network.SafeWriter.Write(Constants.ServerKey, buffer.Length - 8, _buffer);
             try
             {
                 lock (_socket)
@@ -640,8 +643,10 @@ namespace Nyx.Server.Client
                     if (!_socket.Alive) return;
                     lock (Cryptography)
                     {
-                        Cryptography.Encrypt(_buffer, _buffer.Length);
-                        _socket.Send(_buffer);
+                        Cryptography.Encrypt(_buffer, buffer.Length);
+                        var sendArr = new byte[buffer.Length];
+                        Buffer.BlockCopy(_buffer, 0, sendArr, 0, buffer.Length);
+                        _socket.Send(sendArr);
                     }
                 }
             }
@@ -649,6 +654,11 @@ namespace Nyx.Server.Client
             {
                 _socket.Alive = false;
                 Disconnect();
+            }
+            }
+            finally
+            {
+                System.Buffers.ArrayPool<byte>.Shared.Return(_buffer);
             }
         }
         private void EndSend(IAsyncResult res)

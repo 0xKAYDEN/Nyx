@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace Nyx.Server.Game.Npc
 {
-    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
-
     public class NpcAttribute : Attribute
     {
-        public static readonly Func<NpcAttribute, NpcID> Translator = (a) => a.Type;
-        public NpcID Type { get; private set; }
-        public NpcAttribute(NpcID type)
+        public static readonly Func<NpcAttribute, uint> Translator = (attr) => attr.NpcId;
+
+        public uint NpcId { get; private set; }
+
+        public NpcAttribute(uint npcId)
         {
-            this.Type = type;
+            NpcId = npcId;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Nyx.Server.Network.Sockets
         
         // Configuration
         private const int MaxSendQueueSize = 1000;
-        private const int SendThrottleMs = 10; // Minimum time between sends
+        private const int SendThrottleMs = 0; // Minimum time between sends
         private const int HealthCheckIntervalMs = 30000; // 30 seconds
         private const int CleanupIntervalMs = 60000; // 1 minute
         private const int MaxIdleTimeMs = 300000; // 5 minutes
@@ -124,8 +124,7 @@ namespace Nyx.Server.Network.Sockets
                         break;
                     }
 
-                    // Small delay to prevent overwhelming the network
-                    await Task.Delay(SendThrottleMs);
+                    // Removed delay to reduce latency and jitter during consecutive sends
                 }
             }
             finally

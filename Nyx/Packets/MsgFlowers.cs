@@ -15,7 +15,11 @@ namespace Nyx.Server.Packets
         [Network.Packet(1151)]
         public static async Task Process(GameClient client, byte[] packet)
         {
-            ushort Length = BitConverter.ToUInt16(packet, 0);
+            //using (MemoryStream ms = new MemoryStream)
+            //{
+
+            //}
+                ushort Length = BitConverter.ToUInt16(packet, 0);
             ushort ID = BitConverter.ToUInt16(packet, 2);
             ushort TypeP4 = BitConverter.ToUInt16(packet, 4);
             ushort Offest6 = BitConverter.ToUInt16(packet, 6);

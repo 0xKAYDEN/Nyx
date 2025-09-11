@@ -76,7 +76,7 @@ namespace Nyx.Server.Database
             if (exists)
             {
                 MySqlCommand cmd = new MySqlCommand(MySqlCommandType.UPDATE);
-                cmd.Update("accounts").Set("State", 80).Where("Username", Username).Execute();
+                cmd.Update("accounts").Set("State", 3).Where("Username", Username).Execute();
             }
             else
             {

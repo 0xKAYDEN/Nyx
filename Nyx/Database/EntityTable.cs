@@ -512,12 +512,12 @@ namespace Nyx.Server.Database
             }
             if (online)
             {
-                Console.WriteLine(client.Entity.Name + " has been logged on! IP : " + client.IP + "");
+                //Console.WriteLine(client.Entity.Name + " has been logged on! IP : " + client.IP + "");
                 LoggingService.ClientLoginSuccess(client.Entity.Name, client.IP);
             }
             else
             {
-                Console.WriteLine(client.Entity.Name + " has been logged off! IP : " + client.IP + "");
+                //Console.WriteLine(client.Entity.Name + " has been logged off! IP : " + client.IP + "");
                 LoggingService.ClientDisconnected(client.IP, client.Entity.Name);
             }
         }

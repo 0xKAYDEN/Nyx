@@ -1052,15 +1052,15 @@ namespace Nyx.Server.Network
                         break;
                     }
                 #endregion
-                #region ReloadScreen
-                case 1037:
-                    {
-                        if (client.Action != 2) return;
-                        client.SendScreen(packet, true);
-                        client.Screen.Reload(null);
-                        break;
-                    }
-                #endregion
+                //#region ReloadScreen
+                //case 1037:
+                //    {
+                //        if (client.Action != 2) return;
+                //        client.SendScreen(packet, true);
+                //        client.Screen.Reload(null);
+                //        break;
+                //    }
+                //#endregion
                 #region Clone Attack
                 case 2812:
                     {

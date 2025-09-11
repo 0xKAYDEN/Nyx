@@ -1,5 +1,6 @@
 ﻿using Nyx.Server.Client;
 using Nyx.Server.Game;
+using Nyx.Server.Game.Npc;
 using Nyx.Server.Network.GamePackets;
 using static Nyx.Server.Network.GamePackets.Game_SubClass;
 using static Nyx.Server.Network.PacketHandler;
@@ -1398,6 +1399,10 @@ namespace Nyx.Server.Packets
                         client.Inventory.Remove(client.ActiveNpc, 1);
                     }
                 }
+                // Try attribute-based NPC routing first
+                if (NpcRouter.TryHandle(client, req))
+                    return;
+
                 if (client.Map.Npcs.TryGetValue(client.ActiveNpc, out npc))
                 {
                     if (Kernel.GetDistance(client.Entity.X, client.Entity.Y, npc.X, npc.Y) > 16)

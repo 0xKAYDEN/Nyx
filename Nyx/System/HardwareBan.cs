@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nyx.Network.Packets
+namespace Nyx.Server
 {
-    public enum PacketType : ushort
+    public class HardwareBan
     {
 
     }

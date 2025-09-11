@@ -23,7 +23,7 @@ namespace Nyx.Server.Game.ConquerStructures.Society
         {
             // Store the current time
             //DateTime currentTime = DateTime.Now;
-            if (currentTime.Value % 1 == 0)
+            if (currentTime.Value % 8 == 0)
             {
                 foreach (GameClient client in Kernel.GamePool.Values)
                 {
@@ -39,7 +39,7 @@ namespace Nyx.Server.Game.ConquerStructures.Society
                         {
                             // Recharge energy for each client
                             // Example: client.Energy += 1; or your specific energy recharge logic
-                            client.DailyEnergy += 10;
+                            client.DailyEnergy += 1;
                             Log.Information("All players energy have been updated");
                         }
                     }

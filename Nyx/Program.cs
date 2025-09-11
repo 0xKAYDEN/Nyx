@@ -1,4 +1,7 @@
-﻿using Nyx.Server.Client;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Mysqlx.Crud;
+using Nyx.Server.Client;
 using Nyx.Server.Database;
 using Nyx.Server.Game;
 using Nyx.Server.Game.Npc;
@@ -8,6 +11,7 @@ using Nyx.Server.Network.GamePackets;
 using Nyx.Server.Network.GamePackets.Union;
 using Nyx.Server.Network.Sockets;
 using Org.BouncyCastle.Bcpg;
+using ProtoBuf.Meta;
 using Serilog;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -29,7 +33,6 @@ namespace Nyx.Server
         public static DateTime LastRandomReset = DateTime.Now;
         public static Encoding Encoding = ASCIIEncoding.Default;
         public static CachedAttributeInvocation<Func<Client.GameClient, byte[], Task>, PacketAttribute, ushort> MsgInvoker;
-        public static CachedAttributeInvocation<Func<Client.GameClient, byte[], Task>, Game.Npc.NpcAttribute, NpcID> MsgNpc;
         //private static Native.ConsoleEventHandler Nyx.ServerHandler;
         public static Client.GameClient[] GamePool = new Client.GameClient[0];
         public static Client.GameClient[] Values = new Client.GameClient[0];
@@ -93,6 +96,19 @@ namespace Nyx.Server
             {
                 LoggingService.SystemError("Save", "Error during server save", e);
                 Console.WriteLine(e);
+            }
+        }
+        static Program()
+        {
+            try
+            {
+                // Initialize NPC attribute router at startup
+                NpcRouter.Initialize(
+                    typeof(Program).Assembly);
+            }
+            catch (Exception e)
+            {
+                LoggingService.SystemError("Startup", "Failed to initialize NpcRouter", e);
             }
         }
         static void GameServer_OnClientReceive(byte[] buffer, int length, ClientWrapper obj)
@@ -188,25 +204,25 @@ namespace Nyx.Server
                                     LoggingService.SystemWarning("PacketHandler", $"No packet handler found for ID {packetId} from {Client.Entity?.Name ?? "Unknown"}");
                                 }
 
-                                // Handle NPC interactions using NpcAttribute system
-                                if (packetId == 2031 || packetId == 2032)
-                                {
-                                    try
-                                    {
-                                        var npcRequest = new Network.GamePackets.NpcRequest();
-                                        npcRequest.Deserialize(data);
+                                //// Handle NPC interactions using NpcAttribute system
+                                //if (packetId == 2031 || packetId == 2032)
+                                //{
+                                //    try
+                                //    {
+                                //        var npcRequest = new Network.GamePackets.NpcRequest();
+                                //        npcRequest.Deserialize(data);
                                         
-                                        var npcHandler = MsgNpc[(NpcID)npcRequest.NpcID];
-                                        if (npcHandler != null)
-                                        {
-                                            npcHandler.Invoke(Client, data);
-                                        }
-                                    }
-                                    catch (Exception npcEx)
-                                    {
-                                        LoggingService.SystemError("NpcHandler", $"Error processing NPC interaction from {Client.Entity?.Name ?? "Unknown"}", npcEx);
-                                    }
-                                }
+                                //        var npcHandler = MsgNpc[(NpcID)npcRequest.NpcID];
+                                //        if (npcHandler != null)
+                                //        {
+                                //            npcHandler.Invoke(Client, data);
+                                //        }
+                                //    }
+                                //    catch (Exception npcEx)
+                                //    {
+                                //        LoggingService.SystemError("NpcHandler", $"Error processing NPC interaction from {Client.Entity?.Name ?? "Unknown"}", npcEx);
+                                //    }
+                                //}
 
                                 Network.PacketHandler.HandlePacket(data, Client);
                             }
@@ -444,7 +460,6 @@ namespace Nyx.Server
 
                 // Initialize packet attribute system
                 MsgInvoker = new CachedAttributeInvocation<Func<Client.GameClient, byte[], Task>, PacketAttribute, ushort>(PacketAttribute.Translator);
-                MsgNpc = new CachedAttributeInvocation<Func<Client.GameClient, byte[], Task>, Game.Npc.NpcAttribute, NpcID>(Game.Npc.NpcAttribute.Translator);
 
                 // Use improved server sockets for better client handling
                 AuthServer = new Network.Sockets.ImprovedServerSocket();
@@ -481,8 +496,6 @@ namespace Nyx.Server
                 #endregion
                 Console.Clear();
                 Console.Title = "Server Running Normally!";
-                Console.WriteLine("Server Loaded Successfully!!");
-                Console.WriteLine("Nyx.Server!!");
 
                 LoggingService.ServerStarted("Nyx.Server Game Server", GamePort);
                 Log.Information("Server initialization completed successfully");
@@ -527,11 +540,18 @@ namespace Nyx.Server
         public static VariableVault Vars;
         public static int MaxOn = 0;
         public static int RandomSeed = 0;
-        static void Main()
+        static async Task Main()
         {
             try
             {
+                IHost host = Host.CreateDefaultBuilder().ConfigureServices(services =>
+                {
+                    services.AddHostedService<Nyx.Server.Threding.BackgroundTasks>();
+                    services.AddHostedService<Nyx.Server.Threding.TournamentsService>();
+                    services.AddHostedService<Nyx.Server.Threding.SecurityService>();
+                }).Build();
                 LoadServer(false);
+                await host.RunAsync();
             }
             catch (Exception ex)
             {

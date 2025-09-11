@@ -26,7 +26,7 @@ namespace Nyx.Server.Database.Entities
         public uint? EntityID { get; set; } // unsigned int, nullable
 
         [Column("State")]
-        public byte State { get; set; } // unsigned int, nullable
+        public AccountState State { get; set; } // unsigned int, nullable
 
         [Column("MobileNumber")]
         public string? MobileNumber { get; set; } // unsigned int, nullable
@@ -45,5 +45,13 @@ namespace Nyx.Server.Database.Entities
 
         [Column("RegisterationDate")]
         public DateTime? RegisterationDate { get; set; } // varchar(255), nullable
+    }
+
+    public enum AccountState : byte
+    { 
+        Player = 1,
+        Suspended = 2,
+        HardwareBanned = 3,
+        GameMaster = 4,
     }
 }

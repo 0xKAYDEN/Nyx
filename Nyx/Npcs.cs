@@ -1083,35 +1083,35 @@ namespace Nyx.Server
                             switch (client.ActiveNpc)
                             {
                                 //#region HelpDesk NPC
-                                ////case 601:
-                                ////    {
-                                ////        switch (npcRequest.OptionID)
-                                ////        {
-                                ////            case 0:
-                                ////                {
-                                ////                    dialog.Text($"Hello, {client.Entity.Name} tell me how can i help you?");
-                                ////                    dialog.Option("My Nulification", 1);
-                                ////                    dialog.Option("My Daily Energy", 2);
-                                ////                    dialog.Send();
-                                ////                    break;
-                                ////                }
+                                //case 601:
+                                //    {
+                                //        switch (npcRequest.OptionID)
+                                //        {
+                                //            case 0:
+                                //                {
+                                //                    dialog.Text($"Hello, {client.Entity.Name} tell me how can i help you?");
+                                //                    dialog.Option("My Nulification", 1);
+                                //                    dialog.Option("My Daily Energy", 2);
+                                //                    dialog.Send();
+                                //                    break;
+                                //                }
 
-                                ////            case 1:
-                                ////                {
-                                ////                    Nullifications.Callculations.Calculate(client);
-                                ////                    dialog.Text($"You have nulification {client.Entity.Nullifications} Points");
-                                ////                    dialog.Send();
-                                ////                    break;
-                                ////                }
-                                ////            case 2:
-                                ////                {
-                                ////                    dialog.Text($"You have {client.DailyEnergy} Points");
-                                ////                    dialog.Send();
-                                ////                    break;
-                                ////                }
-                                ////        }
-                                ////        break;
-                                ////    }
+                                //            case 1:
+                                //                {
+                                //                    Nullifications.Callculations.Calculate(client);
+                                //                    dialog.Text($"You have nulification {client.Entity.Nullifications} Points");
+                                //                    dialog.Send();
+                                //                    break;
+                                //                }
+                                //            case 2:
+                                //                {
+                                //                    dialog.Text($"You have {client.DailyEnergy} Points");
+                                //                    dialog.Send();
+                                //                    break;
+                                //                }
+                                //        }
+                                //        break;
+                                //    }
                                 //#endregion
                                 //#region Treasury
                                 //case 601:

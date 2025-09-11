@@ -276,43 +276,43 @@ namespace Nyx.Server
                     Game.ConquerStructures.Broadcast.CurrentBroadcast.EntityID = 1;
             }
             #endregion
-            #region CTF
-            if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday)
-            {
-                if (DateTime.Now.Hour == 20 && DateTime.Now.Minute == 00 && DateTime.Now.Second == 00)
-                {
-                    if (!client.Entity.InJail())
-                    {
-                        Network.GamePackets.AutoInvite alert = new Network.GamePackets.AutoInvite
-                        {
-                            StrResID = 10535,
-                            Countdown = 60,
-                            Action = 1
-                        };
-                        client.Entity.StrResID = 10535;
-                        client.Send(alert.Encode());
-                    }
-                    if (client.Entity.GLCTF == 1)
-                    {
-                        client.Entity.GLCTF = 0;
-                    }
-                    using (var cmd = new MySqlCommand(MySqlCommandType.UPDATE))
-                    {
-                        cmd.Update("entities").Set("GLCTF", 0).Execute();
-                    }
+            //#region CTF
+            //if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday)
+            //{
+            //    if (DateTime.Now.Hour == 20 && DateTime.Now.Minute == 00 && DateTime.Now.Second == 00)
+            //    {
+            //        if (!client.Entity.InJail())
+            //        {
+            //            Network.GamePackets.AutoInvite alert = new Network.GamePackets.AutoInvite
+            //            {
+            //                StrResID = 10535,
+            //                Countdown = 60,
+            //                Action = 1
+            //            };
+            //            client.Entity.StrResID = 10535;
+            //            client.Send(alert.Encode());
+            //        }
+            //        if (client.Entity.GLCTF == 1)
+            //        {
+            //            client.Entity.GLCTF = 0;
+            //        }
+            //        using (var cmd = new MySqlCommand(MySqlCommandType.UPDATE))
+            //        {
+            //            cmd.Update("entities").Set("GLCTF", 0).Execute();
+            //        }
 
-                }
-            }
-            if (CaptureTheFlag.IsWar)
-            {
-                if (client.Entity.MapID == CaptureTheFlag.MapID)
-                {
-                    CaptureTheFlag.SortScoresJoining(client, out client.Guild);
-                    CaptureTheFlag.SendScores();
+            //    }
+            //}
+            //if (CaptureTheFlag.IsWar)
+            //{
+            //    if (client.Entity.MapID == CaptureTheFlag.MapID)
+            //    {
+            //        CaptureTheFlag.SortScoresJoining(client, out client.Guild);
+            //        CaptureTheFlag.SendScores();
 
-                }
-            }
-            #endregion
+            //    }
+            //}
+            //#endregion
             #region Activeness
             if (client.Activenes != null)
             {
@@ -324,38 +324,38 @@ namespace Nyx.Server
                 }
             }
             #endregion
-            #region Team Pk
-            if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday && DateTime.Now.Hour == 18 && DateTime.Now.Minute == 55 && DateTime.Now.Second == 00)
-            {
-                if (!client.Entity.InJail())
-                {
-                    Network.GamePackets.AutoInvite alert = new Network.GamePackets.AutoInvite
-                    {
-                        StrResID = 10543,
-                        Countdown = 60,
-                        Action = 1
-                    };
-                    client.Entity.StrResID = 10543;
-                    client.Send(alert.Encode());
-                }
-            }
-            #endregion
-            #region SkillTeamPk
-            if (DateTime.Now.DayOfWeek == DayOfWeek.Wednesday && DateTime.Now.Hour == 19 && DateTime.Now.Minute == 40 && DateTime.Now.Second == 00)
-            {
-                if (!client.Entity.InJail())
-                {
-                    Network.GamePackets.AutoInvite alert = new Network.GamePackets.AutoInvite
-                    {
-                        StrResID = 10541,
-                        Countdown = 60,
-                        Action = 1
-                    };
-                    client.Entity.StrResID = 10541;
-                    client.Send(alert.Encode());
-                }
-            }
-            #endregion
+            //#region Team Pk
+            //if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday && DateTime.Now.Hour == 18 && DateTime.Now.Minute == 55 && DateTime.Now.Second == 00)
+            //{
+            //    if (!client.Entity.InJail())
+            //    {
+            //        Network.GamePackets.AutoInvite alert = new Network.GamePackets.AutoInvite
+            //        {
+            //            StrResID = 10543,
+            //            Countdown = 60,
+            //            Action = 1
+            //        };
+            //        client.Entity.StrResID = 10543;
+            //        client.Send(alert.Encode());
+            //    }
+            //}
+            //#endregion
+            //#region SkillTeamPk
+            //if (DateTime.Now.DayOfWeek == DayOfWeek.Wednesday && DateTime.Now.Hour == 19 && DateTime.Now.Minute == 40 && DateTime.Now.Second == 00)
+            //{
+            //    if (!client.Entity.InJail())
+            //    {
+            //        Network.GamePackets.AutoInvite alert = new Network.GamePackets.AutoInvite
+            //        {
+            //            StrResID = 10541,
+            //            Countdown = 60,
+            //            Action = 1
+            //        };
+            //        client.Entity.StrResID = 10541;
+            //        client.Send(alert.Encode());
+            //    }
+            //}
+            //#endregion
             #region Roullet PlayerTimer
             Map map = Kernel.Maps[2807];
             if (map != null)
@@ -1448,88 +1448,88 @@ namespace Nyx.Server
                 }
             }
             #endregion
-            #region Bp Checks
-            if (client.Account.State != AccountTable.AccountState.GameMaster)
-            {
-                if (client.Entity.NobilityRank == NobilityRank.King && client.Entity.BattlePower > 405)
-                {
-                    client.Account.Cheat();
-                    client.Account.State = Database.AccountTable.AccountState.Cheated;
-                    client.Disconnect();
-                }
-                if (client.Entity.BattlePower > 405)
-                {
-                    client.Account.Cheat();
-                    client.Account.State = Database.AccountTable.AccountState.Cheated;
-                    client.Disconnect();
-                }
-                if (client.Entity.NobilityRank == NobilityRank.Prince && client.Entity.BattlePower > 402)
-                {
-                    client.Account.Cheat();
-                    client.Account.State = Database.AccountTable.AccountState.Cheated;
-                    client.Disconnect();
-                }
-                if (client.Entity.NobilityRank == NobilityRank.Duke && client.Entity.BattlePower > 400)
-                {
-                    client.Account.Cheat();
-                    client.Account.State = Database.AccountTable.AccountState.Cheated;
-                    client.Disconnect();
-                }
-                if (client.Entity.NobilityRank == NobilityRank.Earl && client.Entity.BattlePower > 398)
-                {
-                    client.Account.Cheat();
-                    client.Account.State = Database.AccountTable.AccountState.Cheated;
-                    client.Disconnect();
-                }
-                if (client.Entity.NobilityRank == NobilityRank.Knight && client.Entity.BattlePower > 394)
-                {
-                    client.Account.Cheat();
-                    client.Account.State = Database.AccountTable.AccountState.Cheated;
-                    client.Disconnect();
-                }
-                if (client.Entity.NobilityRank == NobilityRank.Baron && client.Entity.BattlePower > 396)
-                {
-                    client.Account.Cheat();
-                    client.Account.State = Database.AccountTable.AccountState.Cheated;
-                    client.Disconnect();
-                }
-                if (client.Entity.NobilityRank == NobilityRank.Serf && client.Entity.BattlePower > 390)
-                {
-                    client.Account.Cheat();
-                    client.Account.State = Database.AccountTable.AccountState.Cheated;
-                    client.Disconnect();
-                }
-            }
+            //#region Bp Checks
+            //if (client.Account.State != AccountTable.AccountState.GameMaster)
+            //{
+            //    if (client.Entity.NobilityRank == NobilityRank.King && client.Entity.BattlePower > 405)
+            //    {
+            //        client.Account.Cheat();
+            //        client.Account.State = Database.AccountTable.AccountState.Cheated;
+            //        client.Disconnect();
+            //    }
+            //    if (client.Entity.BattlePower > 405)
+            //    {
+            //        client.Account.Cheat();
+            //        client.Account.State = Database.AccountTable.AccountState.Cheated;
+            //        client.Disconnect();
+            //    }
+            //    if (client.Entity.NobilityRank == NobilityRank.Prince && client.Entity.BattlePower > 402)
+            //    {
+            //        client.Account.Cheat();
+            //        client.Account.State = Database.AccountTable.AccountState.Cheated;
+            //        client.Disconnect();
+            //    }
+            //    if (client.Entity.NobilityRank == NobilityRank.Duke && client.Entity.BattlePower > 400)
+            //    {
+            //        client.Account.Cheat();
+            //        client.Account.State = Database.AccountTable.AccountState.Cheated;
+            //        client.Disconnect();
+            //    }
+            //    if (client.Entity.NobilityRank == NobilityRank.Earl && client.Entity.BattlePower > 398)
+            //    {
+            //        client.Account.Cheat();
+            //        client.Account.State = Database.AccountTable.AccountState.Cheated;
+            //        client.Disconnect();
+            //    }
+            //    if (client.Entity.NobilityRank == NobilityRank.Knight && client.Entity.BattlePower > 394)
+            //    {
+            //        client.Account.Cheat();
+            //        client.Account.State = Database.AccountTable.AccountState.Cheated;
+            //        client.Disconnect();
+            //    }
+            //    if (client.Entity.NobilityRank == NobilityRank.Baron && client.Entity.BattlePower > 396)
+            //    {
+            //        client.Account.Cheat();
+            //        client.Account.State = Database.AccountTable.AccountState.Cheated;
+            //        client.Disconnect();
+            //    }
+            //    if (client.Entity.NobilityRank == NobilityRank.Serf && client.Entity.BattlePower > 390)
+            //    {
+            //        client.Account.Cheat();
+            //        client.Account.State = Database.AccountTable.AccountState.Cheated;
+            //        client.Disconnect();
+            //    }
+            //}
 
-            #endregion
-            #region GMRobe Checker
-            if (client.Account.State == 0 && client.Inventory.Contains(137010, 1) || client.Account.State == 0 && client.Equipment.IsHavingGMRobe())
-            {
-                client.Equipment.Remove(1);
-                client.Equipment.Remove(2);
-                client.Equipment.Remove(3);
-                client.Equipment.Remove(4);
-                client.Equipment.Remove(5);
-                client.Equipment.Remove(6);
-                client.Equipment.Remove(7);
-                client.Equipment.Remove(8);
-                client.Equipment.Remove(9);
-                client.Equipment.Remove(10);
-                client.Equipment.Remove(11);
-                client.Equipment.Remove(12);
-                client.Equipment.Remove(18);
-                client.Equipment.Remove(19);
-                ConquerItem[] inventory = new ConquerItem[client.Inventory.Objects.Length];
-                client.Inventory.Objects.CopyTo(inventory, 0);
-                foreach (ConquerItem item in inventory)
-                {
-                    client.Inventory.Remove(item, Nyx.Server.Game.Enums.ItemUse.Remove);
-                }
-                client.Account.Cheat();
-                client.Account.State = Database.AccountTable.AccountState.Cheated;
-                client.Disconnect();
-            }
-            #endregion
+            //#endregion
+            //#region GMRobe Checker
+            //if (client.Account.State == 0 && client.Inventory.Contains(137010, 1) || client.Account.State == 0 && client.Equipment.IsHavingGMRobe())
+            //{
+            //    client.Equipment.Remove(1);
+            //    client.Equipment.Remove(2);
+            //    client.Equipment.Remove(3);
+            //    client.Equipment.Remove(4);
+            //    client.Equipment.Remove(5);
+            //    client.Equipment.Remove(6);
+            //    client.Equipment.Remove(7);
+            //    client.Equipment.Remove(8);
+            //    client.Equipment.Remove(9);
+            //    client.Equipment.Remove(10);
+            //    client.Equipment.Remove(11);
+            //    client.Equipment.Remove(12);
+            //    client.Equipment.Remove(18);
+            //    client.Equipment.Remove(19);
+            //    ConquerItem[] inventory = new ConquerItem[client.Inventory.Objects.Length];
+            //    client.Inventory.Objects.CopyTo(inventory, 0);
+            //    foreach (ConquerItem item in inventory)
+            //    {
+            //        client.Inventory.Remove(item, Nyx.Server.Game.Enums.ItemUse.Remove);
+            //    }
+            //    client.Account.Cheat();
+            //    client.Account.State = Database.AccountTable.AccountState.Cheated;
+            //    client.Disconnect();
+            //}
+            //#endregion
             #region Gambling
             if (client.Entity.Gambleing != null)
             {
@@ -1605,15 +1605,15 @@ namespace Nyx.Server
                 }
             }
             #endregion
-            #region OverHP
-            if (client.Entity.FullyLoaded)
-            {
-                if (client.Entity.Hitpoints > client.Entity.MaxHitpoints && client.Entity.MaxHitpoints > 1 && !client.Entity.Transformed)
-                {
-                    client.Entity.Hitpoints = client.Entity.MaxHitpoints;
-                }
-            }
-            #endregion
+            //#region OverHP
+            //if (client.Entity.FullyLoaded)
+            //{
+            //    if (client.Entity.Hitpoints > client.Entity.MaxHitpoints && client.Entity.MaxHitpoints > 1 && !client.Entity.Transformed)
+            //    {
+            //        client.Entity.Hitpoints = client.Entity.MaxHitpoints;
+            //    }
+            //}
+            //#endregion
             #region Auto Restore HP
             if (DateTime.Now.Second == 00 || DateTime.Now.Second == 10 || DateTime.Now.Second == 20 || DateTime.Now.Second == 30 || DateTime.Now.Second == 40 || DateTime.Now.Second == 50)
             {
@@ -2139,10 +2139,11 @@ namespace Nyx.Server
         {
             try
             {
-                #region PlunderWar
-                if (DateTime.Now.Hour == 18 && DateTime.Now.Minute == 00 && DateTime.Now.Second == 00) Kernel.PlunderWar = true;
-                if (DateTime.Now.Hour == 20 && DateTime.Now.Minute == 00 && DateTime.Now.Second == 00) { Kernel.PlunderWar = false; Network.GamePackets.Union.UnionClass.UpGradeUnion(); }
-                #endregion
+                //#region PlunderWar
+                //if (DateTime.Now.Hour == 18 && DateTime.Now.Minute == 00 && DateTime.Now.Second == 00) Kernel.PlunderWar = true;
+                //if (DateTime.Now.Hour == 20 && DateTime.Now.Minute == 00 && DateTime.Now.Second == 00)
+                //{ Kernel.PlunderWar = false; Network.GamePackets.Union.UnionClass.UpGradeUnion(); }
+                //#endregion
                 #region Spawns
                 if (!Kernel.Maps.ContainsKey(1927) || Kernel.Maps.ContainsKey(3935) || Kernel.Maps.ContainsKey(3856) || Kernel.Maps.ContainsKey(1002)) return;
                 #region SnowBanshee
@@ -2187,8 +2188,7 @@ namespace Nyx.Server
                                 }
 
                                 Map.AddEntity(entity);
-                                Network.GamePackets._String stringPacket =
-                new Nyx.Server.Network.GamePackets._String(true);
+                                Network.GamePackets._String stringPacket = new Nyx.Server.Network.GamePackets._String(true);
                                 stringPacket.UID = entity.UID;
                                 stringPacket.Type = Network.GamePackets._String.Effect;
                                 stringPacket.Texts.Add("MBStandard");
@@ -2793,55 +2793,55 @@ namespace Nyx.Server
                         if (DateTime.Now.Minute == 0 && DateTime.Now.Second <= 2)
                             Kernel.QuizShow.Start();
                 #endregion
-                #region CaptureTheFlag
-                if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday)
-                {
-                    if (DateTime.Now.Hour == 20 && DateTime.Now.Minute == 00 && DateTime.Now.Second == 0 && !CaptureTheFlag.IsWar)
-                    {
-                        CaptureTheFlag.IsWar = true;
-                        CaptureTheFlag.StartTime = DateTime.Now;
-                        CaptureTheFlag.ClearHistory();
-                        foreach (var current in Kernel.Guilds.Values)
-                        {
-                            current.CTFFlagScore = 0;
-                            current.Points = 0;
-                            current.CTFdonationCPs = 0;
-                            current.CTFdonationSilver = 0;
-                            current.CalculateCTFRank(true);
-                            foreach (var current2 in current.Members.Values)
-                            {
-                                current2.Exploits = 0;
-                                current2.ExploitsRank = 0;
-                                current2.CTFCpsReward = 0;
-                                current2.CTFSilverReward = 0;
-                            }
-                            current.CalculateCTFRank(false);
-                        }
+                //#region CaptureTheFlag
+                //if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday)
+                //{
+                //    if (DateTime.Now.Hour == 20 && DateTime.Now.Minute == 00 && DateTime.Now.Second == 0 && !CaptureTheFlag.IsWar)
+                //    {
+                //        CaptureTheFlag.IsWar = true;
+                //        CaptureTheFlag.StartTime = DateTime.Now;
+                //        CaptureTheFlag.ClearHistory();
+                //        foreach (var current in Kernel.Guilds.Values)
+                //        {
+                //            current.CTFFlagScore = 0;
+                //            current.Points = 0;
+                //            current.CTFdonationCPs = 0;
+                //            current.CTFdonationSilver = 0;
+                //            current.CalculateCTFRank(true);
+                //            foreach (var current2 in current.Members.Values)
+                //            {
+                //                current2.Exploits = 0;
+                //                current2.ExploitsRank = 0;
+                //                current2.CTFCpsReward = 0;
+                //                current2.CTFSilverReward = 0;
+                //            }
+                //            current.CalculateCTFRank(false);
+                //        }
 
 
 
-                    }
-                }
-                if (CaptureTheFlag.IsWar)
-                {
-                    Program.World.CTF.SendUpdates();
-                    if (DateTime.Now >= CaptureTheFlag.StartTime.AddHours(1))
-                    {
-                        CaptureTheFlag.IsWar = false;
-                        CaptureTheFlag.Close();
-                    }
-                }
-                if (CTF != null)
-                    CTF.SpawnFlags();
-                #endregion
-                #region TeamPk
-                if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday && DateTime.Now.Hour == 18 && DateTime.Now.Minute == 55 && DateTime.Now.Second == 00)
-                    Game.Features.Tournaments.TeamElitePk.TeamTournament.Open();
-                #endregion
-                #region SkillTeamPk
-                if (DateTime.Now.DayOfWeek == DayOfWeek.Wednesday && DateTime.Now.Hour == 19 && DateTime.Now.Minute == 40 && DateTime.Now.Second == 00)
-                    Game.Features.Tournaments.TeamElitePk.SkillTeamTournament.Open();
-                #endregion
+                //    }
+                //}
+                //if (CaptureTheFlag.IsWar)
+                //{
+                //    Program.World.CTF.SendUpdates();
+                //    if (DateTime.Now >= CaptureTheFlag.StartTime.AddHours(1))
+                //    {
+                //        CaptureTheFlag.IsWar = false;
+                //        CaptureTheFlag.Close();
+                //    }
+                //}
+                //if (CTF != null)
+                //    CTF.SpawnFlags();
+                //#endregion
+                //#region TeamPk
+                //if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday && DateTime.Now.Hour == 18 && DateTime.Now.Minute == 55 && DateTime.Now.Second == 00)
+                //    Game.Features.Tournaments.TeamElitePk.TeamTournament.Open();
+                //#endregion
+                //#region SkillTeamPk
+                //if (DateTime.Now.DayOfWeek == DayOfWeek.Wednesday && DateTime.Now.Hour == 19 && DateTime.Now.Minute == 40 && DateTime.Now.Second == 00)
+                //    Game.Features.Tournaments.TeamElitePk.SkillTeamTournament.Open();
+                //#endregion
                 #region ClanWarArena
                 {
                     if (Time32.Now > ClanWarArenaStampScore.AddSeconds(5))
@@ -3129,10 +3129,10 @@ namespace Nyx.Server
         }
         private void ServerFunctions(int time)
         {
-            if (DateTime.Now.Second == 00)
-            {
-                Program.Save();
-            }
+            //if (DateTime.Now.Second == 00)
+            //{
+            //    //Program.Save();
+            //}
             if (DateTime.Now > Program.LastRandomReset.AddMinutes(30))
             {
                 Program.LastRandomReset = DateTime.Now;

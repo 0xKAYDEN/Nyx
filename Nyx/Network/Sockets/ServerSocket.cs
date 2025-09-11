@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
+using Serilog;
 
 namespace Nyx.Server.Network.Sockets
 {
@@ -64,9 +65,9 @@ namespace Nyx.Server.Network.Sockets
                 processSocket(socket);
                 this.Connection.BeginAccept(doAsyncAccept, null);
             }
-            catch
+            catch (Exception ex)
             {
-
+                Log.Error(ex.ToString());
             }
         }
 
@@ -74,7 +75,7 @@ namespace Nyx.Server.Network.Sockets
         {
             try
             {
-                //Ali
+               
                 string ip = (socket.RemoteEndPoint as IPEndPoint).Address.ToString();
                 ip.GetHashCode();
                 ClientWrapper wrapper = new ClientWrapper();
@@ -83,9 +84,9 @@ namespace Nyx.Server.Network.Sockets
                 wrapper.IP = ip;
                 if (this.OnClientConnect != null) this.OnClientConnect(wrapper);
             }
-            catch
+            catch (Exception ex)
             {
-
+                Log.Error(ex.ToString());
             }
         }
 
