@@ -32,16 +32,16 @@ namespace Nyx.Server.Network.Sockets
             thread.Start();
         }
 
-        public void Enable(ushort port, string ip)
+        public void Enable()
         {
-            this.ipString = ip;
-            this.port = port;
-            this.Connection.Bind(new IPEndPoint(IPAddress.Parse(ipString), this.port));
-            this.Connection.Listen((int)SocketOptionName.MaxConnections);
-            this.enabled = true;
+            if (!this.enabled)
+            {
+                this.Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                this.Connection.Bind(new IPEndPoint(IPAddress.Parse(ipString), this.port));
+                this.Connection.Listen((int)SocketOptionName.MaxConnections);
+                this.enabled = true;
+            }
         }
-
-        public bool PrintoutIPs = false;
         private void doSyncAccept()
         {
             while (true)
@@ -102,16 +102,7 @@ namespace Nyx.Server.Network.Sockets
             this.Connection.Close(1);
         }
 
-        public void Enable()
-        {
-            if (!this.enabled)
-            {
-                this.Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                this.Connection.Bind(new IPEndPoint(IPAddress.Parse(ipString), this.port));
-                this.Connection.Listen((int)SocketOptionName.MaxConnections);
-                this.enabled = true;
-            }
-        }
+
 
         public void InvokeDisconnect(ClientWrapper Client)
         {

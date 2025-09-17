@@ -15,6 +15,7 @@ namespace Nyx.Server.Database.Context
         public virtual DbSet<DbNpc> Npcs { get; set; }
         public virtual DbSet<DbAccounts> Accounts { get; set; }
         public virtual DbSet<DbHardwareBan> HardwareBan { get; set; }
+        public virtual DbSet<DbSuspendedUsers> SuspendedUsers { get; set; }
 
     }
 }

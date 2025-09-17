@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Nyx.Server.Threding
 {
-    public class BackgroundTasks : BackgroundService
+    public class WorldStateService : BackgroundService
     {
         private readonly TimeSpan _saveInterval = TimeSpan.FromMinutes(2);
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)

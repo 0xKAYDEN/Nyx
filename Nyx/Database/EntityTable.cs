@@ -14,7 +14,7 @@ namespace Nyx.Server.Database
     {
         public static bool LoadEntity(Client.GameClient client)
         {
-            using (var cmd = new MySqlCommand(MySqlCommandType.SELECT).Select("entities").Where("UID", client.Account.EntityID))
+            using (var cmd = new MySqlCommand(MySqlCommandType.SELECT).Select("entities").Where("UID", (long)client.Account.EntityID))
             using (var reader = new MySqlReader(cmd))
             {
                 if (reader.Read())

@@ -11,7 +11,7 @@ namespace Nyx.Server.Threding
     public class SecurityService : BackgroundService
     {
         private readonly IServiceProvider _serviceProvider;
-        private readonly TimeSpan _checkInterval = TimeSpan.FromSeconds(5);
+        private readonly TimeSpan _checkInterval = TimeSpan.FromMinutes(3);
 
         public SecurityService(IServiceProvider serviceProvider)
         {

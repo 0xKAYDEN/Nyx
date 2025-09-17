@@ -1,0 +1,98 @@
+{
+  "promotions": [
+    {
+      "promotionId": 1,
+      "name": "Ninja",
+      "requiredLevel": 15,
+      "requiredClass": 50,
+      "requiredMetempsychosis": 0,
+      "resultClassId": 51,
+      "requiredMoney": 5000,
+      "requiredItems": [
+        {
+          "itemId": 1001, 
+          "amount": 1
+        },
+        {
+          "itemId": 1002, 
+          "amount": 5
+        }
+      ],
+      "skillsUnlocked": [
+        {
+          "skillId": 6011 
+        },
+        {
+          "skillId": 12070 
+        },
+        {
+          "skillId": 12110 
+        }
+      ],
+      "itemsRewarded": [
+        {
+          "itemId": 2001, 
+          "amount": 1
+        },
+        {
+          "itemId": 3001, 
+          "amount": 10
+        }
+      ],
+      "statPointsRewarded": 10
+    },
+    {
+      "promotionId": 2,
+      "name": "Middle Ninja",
+      "requiredLevel": 40,
+      "requiredClass": 50, 
+      "requiredMetempsychosis": 0,
+      "resultClassId": 52, 
+      "requiredMoney": 5000,
+      "requiredItems": [
+        {
+          "itemId": 1001, 
+          "amount": 1
+        },
+        {
+          "itemId": 1003,
+          "amount": 5
+        }
+      ],
+      "skillsUnlocked": [
+        {
+          "skillId": 11170 
+        },
+        {
+          "skillId": 11180 
+        },
+                {
+          "skillId": 6011 
+        },
+                {
+          "skillId": 6000 
+        },
+                {
+            "skillId": 12090 
+        },
+                        {
+            "skillId": 12080 
+        },
+                        {
+            "skillId": 11230 
+        }
+      ],
+      "itemsRewarded": [
+        {
+          "itemId": 2002, 
+          "amount": 1
+        },
+        {
+          "itemId": 3002, 
+          "amount": 10
+        }
+      ],
+      "statPointsRewarded": 10
+    }
+  ]
+}

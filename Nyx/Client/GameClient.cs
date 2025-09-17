@@ -4307,46 +4307,46 @@ namespace Nyx.Server.Client
             }
             Database.ChiTable.Load(this);
         }
-        public void FakeLoad(uint UID)
-        {
-            if (!Kernel.GamePool.ContainsKey(UID))
-            {
-                ReadyToPlay();
-                this.Account = new Database.AccountTable(null);
-                this.Account.EntityID = UID;
-                if (Database.EntityTable.LoadEntity(this))
-                {
-                    if (this.Entity.FullyLoaded)
-                    {
-                        VariableVault variables;
-                        Database.EntityVariableTable.Load(this.Account.EntityID, out variables);
-                        this.Variables = variables;
+        //public void FakeLoad(uint UID)
+        //{
+        //    if (!Kernel.GamePool.ContainsKey(UID))
+        //    {
+        //        ReadyToPlay();
+        //        this.Account = new Database.AccountTable(null);
+        //        this.Account.EntityID = UID;
+        //        if (Database.EntityTable.LoadEntity(this))
+        //        {
+        //            if (this.Entity.FullyLoaded)
+        //            {
+        //                VariableVault variables;
+        //                Database.EntityVariableTable.Load(this.Account.EntityID, out variables);
+        //                this.Variables = variables;
 
 
-                        if (this.BackupArmorLook != 0)
-                            this.SetNewArmorLook(this.BackupArmorLook);
-                        else
-                            this.SetNewArmorLook(this.ArmorLook);
-                        this.SetNewHeadgearLook(this.HeadgearLook);
-                        this.BackupArmorLook = 0;
+        //                if (this.BackupArmorLook != 0)
+        //                    this.SetNewArmorLook(this.BackupArmorLook);
+        //                else
+        //                    this.SetNewArmorLook(this.ArmorLook);
+        //                this.SetNewHeadgearLook(this.HeadgearLook);
+        //                this.BackupArmorLook = 0;
 
-                        this.LoadData(true);
+        //                this.LoadData(true);
 
-                        if (this.Entity.GuildID != 0)
-                            this.Entity.GuildBattlePower = this.Guild.GetSharedBattlepower(this.Entity.GuildRank);
+        //                if (this.Entity.GuildID != 0)
+        //                    this.Entity.GuildBattlePower = this.Guild.GetSharedBattlepower(this.Entity.GuildRank);
 
-                        this.ReviewMentor();
+        //                this.ReviewMentor();
 
-                        Network.PacketHandler.LoadEntity(this);
+        //                Network.PacketHandler.LoadEntity(this);
 
-                        Program.World.Register(this);
-                        Kernel.GamePool.Add(Entity.UID, this);
-                        FakeLoaded = true;
-                        Entity.NobilityRank = NobilityInformation.Rank;
-                    }
-                }
-            }
-        }
+        //                Program.World.Register(this);
+        //                Kernel.GamePool.Add(Entity.UID, this);
+        //                FakeLoaded = true;
+        //                Entity.NobilityRank = NobilityInformation.Rank;
+        //            }
+        //        }
+        //    }
+        //}
         public void FakeLoad2(uint UID, string Name = "")
         {
             if (Name == "")

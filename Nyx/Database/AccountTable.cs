@@ -29,23 +29,24 @@ namespace Nyx.Server.Database
             this.IP = "";
             this.State = AccountState.Player;
             this.EntityID = 0;
-            using(var cmd = new MySqlCommand( MySqlCommandType.SELECT).Select("accounts").Where("Username", username))
+
+            using (var cmd = new MySqlCommand(MySqlCommandType.SELECT).Select("accounts").Where("Username", username))
             using (var reader = new MySqlReader(cmd))
             {
                 if (reader.Read())
                 {
                     exists = true;
                     this.Password = reader.ReadString("Password");
-                    this.IP =  reader.ReadString("Ip");
-                    this.EntityID =  reader.ReadUInt32("EntityID");
-                    this.State = (AccountState) reader.ReadInt32("State");
+                    this.IP = reader.ReadString("Ip");
+                    this.EntityID = reader.ReadUInt32("EntityID");
+                    this.State = (AccountState)reader.ReadInt32("State");
                 }
             }
         }
 
         public uint GenerateKey(int randomKey = 0)
         {
-            if(randomKey == 0)
+            if (randomKey == 0)
                 RandomKey = Kernel.Random.Next(11, 253) % 100 + 1;
             return (uint)
                         (Username.GetHashCode() *
@@ -80,11 +81,11 @@ namespace Nyx.Server.Database
             }
             else
             {
-                    MySqlCommand cmd = new MySqlCommand(MySqlCommandType.INSERT);
-                    cmd.Insert("accounts").Insert("Username", Username).Insert("Password", Password).Insert("State", (byte)State).Execute();
-                
+                MySqlCommand cmd = new MySqlCommand(MySqlCommandType.INSERT);
+                cmd.Insert("accounts").Insert("Username", Username).Insert("Password", Password).Insert("State", (byte)State).Execute();
+
             }
-        }  
+        }
         public void SaveState()
         {
             using (var cmd = new MySqlCommand(MySqlCommandType.UPDATE))

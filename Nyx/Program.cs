@@ -3,6 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Mysqlx.Crud;
 using Nyx.Server.Client;
 using Nyx.Server.Database;
+using Nyx.Server.Database.Repositories;
 using Nyx.Server.Game;
 using Nyx.Server.Game.Npc;
 using Nyx.Server.Network;
@@ -395,6 +396,7 @@ namespace Nyx.Server
                 Database.JiangHu.LoadStatus();
                 Database.JiangHu.LoadJiangHu();
                 Way2Heroes.Load();
+                PromotionsRepository.LoadPromotions("database\\Promotions.json");
                 QuestInfo.Load();
                 AuctionBase.Load();
                 Database.DataHolder.ReadStats();
@@ -546,9 +548,10 @@ namespace Nyx.Server
             {
                 IHost host = Host.CreateDefaultBuilder().ConfigureServices(services =>
                 {
-                    services.AddHostedService<Nyx.Server.Threding.BackgroundTasks>();
+                    services.AddHostedService<Nyx.Server.Threding.WorldStateService>();
                     services.AddHostedService<Nyx.Server.Threding.TournamentsService>();
                     services.AddHostedService<Nyx.Server.Threding.SecurityService>();
+                    services.AddHostedService<Nyx.Server.Threding.CharacterService>();
                 }).Build();
                 LoadServer(false);
                 await host.RunAsync();

@@ -41,6 +41,7 @@ namespace Nyx.Server.Game
         public Time32 WaveofBlood;
         public Time32 ScarofEarth;
         public byte WaveofBloodXp = 8;
+        public HashSet<int> CompletedPromotions = new HashSet<int>();
         public bool EpicWarrior()
         {
             if (EntityFlag == Game.EntityFlag.Player)
@@ -307,6 +308,7 @@ namespace Nyx.Server.Game
         public Time32 ChainboltStamp;
         public Time32 FrozenStamp;
         public Time32 Cursed;
+        public Time32 SkillCoolDown;
         public Time32 DragonCycloneStamp { get; set; }
         public Time32 DragonFury { get; set; }
         public DateTime CongeladoTimeStamp;

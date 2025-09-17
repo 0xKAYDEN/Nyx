@@ -14,7 +14,7 @@ namespace Nyx.Server.Database.Entities
         [Key][Column("GUID")]
         public Guid ID { get; set; } // unsigned int, not nullable
 
-        [Key][Column("Username")]
+        [Column("Username")]
         public string Username { get; set; } // unsigned int, not nullable
 
         [Column("IPAddress")]
