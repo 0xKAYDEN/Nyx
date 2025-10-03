@@ -40,8 +40,8 @@ namespace Nyx.Server.Database.Entities
         [Column("securitycode")]
         public string? securitycode { get; set; } // varchar(255), nullable
 
-        [Column("ProfileImage")]
-        public Image? ProfileImage { get; set; } // varchar(255), nullable
+        //[Column("ProfileImage")]
+        //public Image? ProfileImage { get; set; } // varchar(255), nullable
 
         [Column("RegisterationDate")]
         public DateTime? RegisterationDate { get; set; } // varchar(255), nullable

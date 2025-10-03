@@ -6,6 +6,7 @@ using Nyx.Server.Interfaces;
 using Nyx.Server.Network;
 using Nyx.Server.Network.GamePackets;
 using Message = Nyx.Server.Network.GamePackets.Message;
+using System.Drawing;
 
 namespace Nyx.Server
 {

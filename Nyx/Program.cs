@@ -618,10 +618,10 @@ namespace Nyx.Server
                         case "players":
                             Console.WriteLine($"Online Players: {Kernel.GamePool.Count}");
                             break;
-                        case "cpanal":
-                            AdminTools.ControlPanel cp = new AdminTools.ControlPanel();
-                            cp.ShowDialog();
-                            break;
+                        //case "cpanal":
+                        //    AdminTools.ControlPanel cp = new AdminTools.ControlPanel();
+                        //    cp.ShowDialog();
+                        //    break;
                         default:
                             Console.WriteLine($"Unknown command: {command}");
                             break;

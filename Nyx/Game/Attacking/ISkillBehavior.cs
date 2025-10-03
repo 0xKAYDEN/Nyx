@@ -1,6 +1,7 @@
 ﻿using Nyx.Server.Client;
 using Nyx.Server.Network;
 using Nyx.Server.Network.GamePackets;
+using Org.BouncyCastle.Asn1.X509;
 
 namespace Nyx.Server.Game.Attacking
 {
@@ -9,6 +10,8 @@ namespace Nyx.Server.Game.Attacking
         void ExecuteOnPlayers(GameClient caster, GameClient Target, Database.SpellInformation spell);
         void ExecuteOnMonsters(GameClient caster, Entity Target, Database.SpellInformation spell);
         void ExecuteOnNpc(GameClient caster, SobNpcSpawn Target, Database.SpellInformation spell);
+
+        void Execute(GameClient caster, object Targets , Database.SpellInformation spell);
 
         bool ValidAttackOnPlayers(GameClient caster, GameClient Target, Database.SpellInformation spell)
         {

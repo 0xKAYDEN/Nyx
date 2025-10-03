@@ -2,6 +2,7 @@
 using Nyx.Server.Database.Entities;
 using Nyx.Server.Interfaces;
 using Nyx.Server.Network.GamePackets;
+using System.Drawing;
 
 namespace Nyx.Server.Game.Characters
 {

@@ -2,6 +2,7 @@
 using Nyx.Server.Game;
 using Nyx.Server.Game.Npc;
 using Nyx.Server.Network.GamePackets;
+using System.Drawing;
 using static Nyx.Server.Network.GamePackets.Game_SubClass;
 using static Nyx.Server.Network.PacketHandler;
 

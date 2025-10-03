@@ -3,10 +3,12 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net9.0-windows</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+	  <EnableWindowsTargeting>true</EnableWindowsTargeting>
+	  <ImplicitUsings>enable</ImplicitUsings>
 	  <OutputPath>../Server</OutputPath>
      <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-	  <UseWindowsForms>true</UseWindowsForms>
+	  <!--<UseWindowsForms>true</UseWindowsForms>-->
+	  <StartupObject></StartupObject>
 
   </PropertyGroup>
 
@@ -53,7 +55,7 @@
 
   <ItemGroup>
     <Reference Include="BigBOs_Lib">
-      <HintPath>bin\Debug\net9.0-windows\New folder\BigBOs_Lib.dll</HintPath>
+      <HintPath>..\Server\net9.0-windows\BigBOs_Lib.dll</HintPath>
     </Reference>
     <Reference Include="cityLookUp">
       <HintPath>..\Server\net9.0-windows\cityLookUp.dll</HintPath>

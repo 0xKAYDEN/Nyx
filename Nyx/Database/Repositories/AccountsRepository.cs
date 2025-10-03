@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic.ApplicationServices;
 using Nyx.Server.Database.Context;
 using Nyx.Server.Database.Entities;
 using Org.BouncyCastle.Crypto.Agreement;
@@ -9,7 +8,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
 
 namespace Nyx.Server.Database.Repositories
 {

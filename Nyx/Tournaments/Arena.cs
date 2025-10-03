@@ -1,6 +1,7 @@
 ﻿using Nyx.Server.Client;
 using Nyx.Server.Network.GamePackets;
 using System.Collections.Concurrent;
+using System.Drawing;
 using System.Text;
 using Message = Nyx.Server.Network.GamePackets.Message;
 

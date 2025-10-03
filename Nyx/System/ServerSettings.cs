@@ -9,7 +9,9 @@ namespace Nyx.Server
         {
             new ConfigurationBuilder()
                 .AddJsonFile("ServerConfigrations.json")
+                .AddEnvironmentVariables("Server") // or .AddEnvironmentVariables("Database_") if you want a prefix
                 .AddEnvironmentVariables("Database") // or .AddEnvironmentVariables("Database_") if you want a prefix
+                .AddEnvironmentVariables("Application") // or .AddEnvironmentVariables("Database_") if you want a prefix
                 .Build()
                 .Bind(this);
         }

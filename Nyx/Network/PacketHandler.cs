@@ -12,6 +12,7 @@ using Nyx.Server.Game;
 using Nyx.Server.Interfaces;
 using System.Threading.Tasks;
 using Message = Nyx.Server.Network.GamePackets.Message;
+using System.Drawing;
 namespace Nyx.Server.Network
 {
     public static class PacketHandler
@@ -23041,12 +23042,12 @@ if (Kernel.Unions.ContainsKey(Kernel.Guilds[Id].UnionID) &&Kernel.Unions[Kernel.
                     string[] Data = message_.Split(' ');
                     switch (Data[0])
                     {
-                        case "CPanal":
-                            {
-                                AdminTools.ControlPanel cp = new AdminTools.ControlPanel();
-                                cp.ShowDialog();
-                                break;
-                            }
+                        //case "CPanal":
+                        //    {
+                        //        AdminTools.ControlPanel cp = new AdminTools.ControlPanel();
+                        //        cp.ShowDialog();
+                        //        break;
+                        //    }
                         case "Energy":
                             {
                                 client.Send(new Message($"You have  : {client.DailyEnergy} Points ", System.Drawing.Color.Red, Message.Whisper));
