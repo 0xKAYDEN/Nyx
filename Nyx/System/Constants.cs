@@ -120,23 +120,24 @@ namespace Nyx.Server
             else
                 return new Message("You were lucky. You gained more enchantment in your item. Your generated enchant is " + newEnch + ".", System.Drawing.Color.Red, Message.TopLeft);
         }
-        public const string DataHolderPath = "database\\",
-        ShopsPath = "database\\shops\\Shop.dat",
-        EShopsPath = "database\\shops\\emoneyshop.ini",
-        EShopsV2Path = "database\\shops\\emoneyshopV2.ini",
-        HonorShopPath = "database\\shops\\HonorShop.ini",
-        RaceShopPath = "database\\shops\\RacePointShop.ini",
-        ChampionShopPath = "database\\shops\\GoldenLeagueShop.ini",
-        PortalsPath = "database\\Portals.ini",
-        RevivePoints = "database\\RevivePoints.ini",
-        MonstersPath = "database\\Monsters.txt",
-        ItemBaseInfosPath = "database\\Items.txt",
-        QuizShow = "database\\QuizShow.txt",
-        ItemPlusInfosPath = "database\\ItemsPlus.ini",
-        SoulGearInformation = "database\\soulgear.txt",
-        ServerKey = "TQServer",
-        BugList = "database\\BugList.txt",
-        GameCryptographyKey = "C238xs65pjy7HU9Q";
+        public static readonly string
+    DataHolderPath = Path.Combine("database"),
+    ShopsPath = Path.Combine("database", "shops", "Shop.dat"),
+    EShopsPath = Path.Combine("database", "shops", "emoneyshop.ini"),
+    EShopsV2Path = Path.Combine("database", "shops", "emoneyshopV2.ini"),
+    HonorShopPath = Path.Combine("database", "shops", "HonorShop.ini"),
+    RaceShopPath = Path.Combine("database", "shops", "RacePointShop.ini"),
+    ChampionShopPath = Path.Combine("database", "shops", "GoldenLeagueShop.ini"),
+    PortalsPath = Path.Combine("database", "Portals.ini"),
+    RevivePoints = Path.Combine("database", "RevivePoints.ini"),
+    MonstersPath = Path.Combine("database", "Monsters.txt"),
+    ItemBaseInfosPath = Path.Combine("database", "Items.txt"),
+    QuizShow = Path.Combine("database", "QuizShow.txt"),
+    ItemPlusInfosPath = Path.Combine("database", "ItemsPlus.ini"),
+    SoulGearInformation = Path.Combine("database", "soulgear.txt"),
+    ServerKey = "TQServer",
+    BugList = Path.Combine("database", "BugList.txt"),
+    GameCryptographyKey = "C238xs65pjy7HU9Q";
         public const int MaxBroadcasts = 50;
         public static uint ExtraExperienceRate, ExtraSpellRate, ExtraProficiencyRate, MoneyDropRate, ConquerPointsDropRate, ItemDropRate;
         public static string[] ItemDropQualityRates;

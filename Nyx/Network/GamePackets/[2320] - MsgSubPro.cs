@@ -99,7 +99,7 @@ namespace Nyx.Server.Network.GamePackets
             this.packet = new byte[38 + (int)entry * 3];
             Writer.Write((ushort)(this.packet.Length - 8), 0, this.packet);
             Writer.Write((ushort)2320, 2, this.packet);
-            Writer.Write((uint)System.Time32.timeGetTime().GetHashCode(), 4, this.packet);
+            Writer.Write((uint)Time32.timeGetTime().GetHashCode(), 4, this.packet);
             if ((int)entry == 0)
                 return;
             this.Count = entry;
@@ -239,7 +239,7 @@ namespace Nyx.Server.Network.GamePackets
             this.Buffer = new byte[38];
             Writer.Write((ushort)30, 0, this.Buffer);
             Writer.Write((ushort)2320, 2, this.Buffer);
-            Writer.Write((uint)System.Time32.timeGetTime().GetHashCode(), 4, this.Buffer);
+            Writer.Write((uint)Time32.timeGetTime().GetHashCode(), 4, this.Buffer);
         }
 
         public void Deserialize(byte[] buffer)

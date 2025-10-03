@@ -31,8 +31,7 @@
           "BigBOs_Lib": "1.0.0.0",
           "cityLookUp": "1.0.0.0",
           "CO2_CORE_DLL": "1.0.0.20",
-          "NpcDialogs": "1.0.0.0",
-          "SystemExtensions": "1.0.0.0"
+          "NpcDialogs": "1.0.0.0"
         },
         "runtime": {
           "Nyx.Server.dll": {}
@@ -1180,14 +1179,6 @@
             "fileVersion": "1.0.0.0"
           }
         }
-      },
-      "SystemExtensions/1.0.0.0": {
-        "runtime": {
-          "SystemExtensions.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
       }
     }
   },
@@ -1850,11 +1841,6 @@
       "sha512": ""
     },
     "NpcDialogs/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "SystemExtensions/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

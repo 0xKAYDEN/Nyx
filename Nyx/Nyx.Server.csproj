@@ -66,9 +66,6 @@
     <Reference Include="NpcDialogs">
       <HintPath>..\Server\net9.0-windows\NpcDialogs.dll</HintPath>
     </Reference>
-    <Reference Include="SystemExtensions">
-      <HintPath>..\Server\net9.0-windows\SystemExtensions.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup>
